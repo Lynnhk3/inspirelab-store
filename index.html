@@ -1,25 +1,21 @@
-Naive
-Got it. The logo has a warm, elegant, premium aesthetic — completely different from the current dark navy tech look. I'm redesigning the site to match right now.
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>InspireLab — We design your digital actions</title>
-  <meta name="description" content="We design your digital actions. Premium digital products for ambitious women and doers.">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta name="description" content="We design your digital actions. Premium digital products for high-performers.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --bg:#FDFCFA;
-      --surface:#F5F2ED;
-      --accent:#B8935A;
-      --accent-hover:#9C7A48;
-      --text:#1C1917;
-      --muted:#78716C;
-      --border:#E8E0D5;
-      --card:#FFFFFF;
+      --bg:#0a0f1e;
+      --surface:#111827;
+      --accent:#7c3aed;
+      --accent-hover:#6d28d9;
+      --text:#f8fafc;
+      --muted:#94a3b8;
+      --border:#1e293b;
     }
     body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;min-height:100vh}
     a{color:inherit;text-decoration:none}
@@ -27,143 +23,192 @@ Got it. The logo has a warm, elegant, premium aesthetic — completely different
     /* NAV */
     nav{
       display:flex;align-items:center;justify-content:space-between;
-      padding:1rem 2.5rem;
+      padding:1.25rem 2.5rem;
       border-bottom:1px solid var(--border);
       position:sticky;top:0;
-      background:rgba(253,252,250,0.95);
-      backdrop-filter:blur(8px);
+      background:rgba(10,15,30,0.9);
+      backdrop-filter:blur(12px);
       z-index:100;
     }
-    .logo img{height:64px;width:auto;display:block;}
-    nav a.nav-cta{
-      background:var(--accent);color:#fff;
-      padding:0.55rem 1.35rem;
-      border-radius:4px;
-      font-size:0.85rem;font-weight:600;
-      letter-spacing:0.04em;
-      transition:background 0.2s;
+    .logo-text{
+      font-size:1.2rem;font-weight:700;letter-spacing:0.02em;
+      color:var(--text);
     }
-    nav a.nav-cta:hover{background:var(--accent-hover)}
+    .logo-text span{color:var(--accent)}
+    nav a.nav-cta{
+      background:transparent;
+      color:var(--text);
+      border:1px solid var(--border);
+      padding:0.5rem 1.25rem;
+      border-radius:6px;
+      font-size:0.85rem;font-weight:500;
+      transition:border-color 0.2s,color 0.2s;
+    }
+    nav a.nav-cta:hover{border-color:var(--accent);color:var(--accent)}
 
     /* HERO */
     .hero{
-      max-width:800px;margin:0 auto;
+      position:relative;
+      overflow:hidden;
+      min-height:88vh;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      display:flex;align-items:center;justify-content:center;
+      pointer-events:none;
+    }
+    .hero-bg img{
+      width:min(700px,90vw);
+      height:auto;
+      opacity:0.04;
+      filter:grayscale(100%) brightness(2);
+      user-select:none;
+    }
+    .hero-glow{
+      position:absolute;
+      top:50%;left:50%;
+      transform:translate(-50%,-50%);
+      width:600px;height:600px;
+      background:radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%);
+      pointer-events:none;
+    }
+    .hero-content{
+      position:relative;z-index:2;
+      max-width:760px;
       text-align:center;
-      padding:6rem 2rem 5rem;
+      padding:4rem 2rem;
     }
     .badge{
-      display:inline-block;
-      background:var(--surface);
-      color:var(--accent);
-      border:1px solid var(--border);
+      display:inline-flex;align-items:center;gap:0.5rem;
+      background:rgba(124,58,237,0.1);
+      color:#a78bfa;
+      border:1px solid rgba(124,58,237,0.25);
       font-size:0.7rem;font-weight:600;
       letter-spacing:0.12em;text-transform:uppercase;
       padding:0.4rem 1rem;border-radius:2px;
       margin-bottom:2rem;
     }
     .hero h1{
-      font-family:'Playfair Display',serif;
-      font-size:clamp(2.5rem,6vw,4rem);
-      font-weight:700;
-      line-height:1.15;
-      letter-spacing:-0.01em;
+      font-size:clamp(2.5rem,6vw,4.25rem);
+      font-weight:800;
+      letter-spacing:-0.03em;
+      line-height:1.05;
       margin-bottom:1.5rem;
-      color:var(--text);
     }
-    .hero h1 em{
-      font-style:italic;
-      color:var(--accent);
+    .hero h1 span{
+      background:linear-gradient(135deg,#a78bfa,#7c3aed);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
     }
     .hero p{
-      font-size:1.05rem;
-      color:var(--muted);
-      max-width:480px;
-      margin:0 auto 2.5rem;
-      font-weight:300;
-      line-height:1.8;
+      font-size:1.05rem;color:var(--muted);
+      max-width:480px;margin:0 auto 2.5rem;
+      font-weight:300;line-height:1.8;
     }
+    .hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
     .btn-primary{
       display:inline-block;
-      background:var(--text);color:#fff;
-      padding:0.9rem 2.25rem;
-      border-radius:4px;
+      background:var(--accent);color:#fff;
+      padding:0.875rem 2rem;border-radius:6px;
       font-size:0.9rem;font-weight:600;
-      letter-spacing:0.04em;
       transition:background 0.2s,transform 0.1s;
     }
-    .btn-primary:hover{background:#292524;transform:translateY(-1px)}
-
-    /* DIVIDER */
-    .divider{
-      width:48px;height:1px;
-      background:var(--accent);
-      margin:0 auto;
-      opacity:0.6;
+    .btn-primary:hover{background:var(--accent-hover);transform:translateY(-1px)}
+    .btn-ghost{
+      display:inline-block;
+      background:transparent;color:var(--muted);
+      border:1px solid var(--border);
+      padding:0.875rem 2rem;border-radius:6px;
+      font-size:0.9rem;font-weight:500;
+      transition:border-color 0.2s,color 0.2s;
     }
+    .btn-ghost:hover{border-color:var(--accent);color:var(--text)}
+
+    /* STATS */
+    .stats{
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+      background:var(--surface);
+    }
+    .stats-inner{
+      max-width:960px;margin:0 auto;
+      display:grid;grid-template-columns:repeat(3,1fr);
+      divide-x:1px solid var(--border);
+    }
+    .stat{
+      padding:2rem;text-align:center;
+      border-right:1px solid var(--border);
+    }
+    .stat:last-child{border-right:none}
+    .stat-number{
+      font-size:1.75rem;font-weight:800;
+      letter-spacing:-0.02em;color:var(--text);
+    }
+    .stat-label{font-size:0.8rem;color:var(--muted);margin-top:0.25rem;font-weight:400}
 
     /* PRODUCTS */
     .products{max-width:1020px;margin:0 auto;padding:5rem 2rem}
     .section-eyebrow{
-      text-align:center;
-      font-size:0.7rem;font-weight:600;
+      text-align:center;font-size:0.7rem;font-weight:600;
       letter-spacing:0.14em;text-transform:uppercase;
       color:var(--accent);margin-bottom:0.75rem;
     }
     .section-title{
-      text-align:center;
-      font-family:'Playfair Display',serif;
-      font-size:clamp(1.75rem,4vw,2.5rem);
-      font-weight:600;
-      letter-spacing:-0.01em;
-      margin-bottom:3rem;
-      color:var(--text);
+      text-align:center;font-size:clamp(1.75rem,4vw,2.5rem);
+      font-weight:800;letter-spacing:-0.02em;margin-bottom:0.75rem;
+    }
+    .section-sub{
+      text-align:center;color:var(--muted);
+      font-size:0.9rem;font-weight:300;
+      max-width:400px;margin:0 auto 3rem;
     }
     .grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
-      gap:1.75rem;
+      gap:1.5rem;
     }
     .card{
-      background:var(--card);
+      background:var(--surface);
       border:1px solid var(--border);
-      border-radius:6px;
-      padding:2.25rem;
-      display:flex;flex-direction:column;gap:1rem;
-      transition:box-shadow 0.2s,transform 0.2s;
+      border-radius:8px;padding:2rem;
+      display:flex;flex-direction:column;gap:0.875rem;
+      transition:border-color 0.2s,transform 0.2s;
+      position:relative;overflow:hidden;
     }
-    .card:hover{
-      box-shadow:0 8px 32px rgba(184,147,90,0.12);
-      transform:translateY(-2px);
+    .card::before{
+      content:'';
+      position:absolute;top:0;left:0;right:0;height:1px;
+      background:linear-gradient(90deg,transparent,var(--accent),transparent);
+      opacity:0;transition:opacity 0.3s;
     }
+    .card:hover{border-color:rgba(124,58,237,0.4);transform:translateY(-2px)}
+    .card:hover::before{opacity:1}
     .card-tag{
-      font-size:0.68rem;font-weight:600;
+      display:inline-block;
+      font-size:0.65rem;font-weight:600;
       letter-spacing:0.1em;text-transform:uppercase;
       color:var(--accent);
+      background:rgba(124,58,237,0.1);
+      padding:0.25rem 0.65rem;border-radius:2px;
+      width:fit-content;
     }
-    .card h3{
-      font-family:'Playfair Display',serif;
-      font-size:1.3rem;font-weight:600;
-      line-height:1.3;color:var(--text);
-    }
-    .card p{color:var(--muted);font-size:0.9rem;flex:1;line-height:1.75;font-weight:300}
-    .card-divider{width:32px;height:1px;background:var(--border)}
+    .card h3{font-size:1.15rem;font-weight:700;letter-spacing:-0.01em;line-height:1.35}
+    .card p{color:var(--muted);font-size:0.875rem;flex:1;line-height:1.75;font-weight:300}
     .card-footer{
       display:flex;align-items:center;
       justify-content:space-between;
-      margin-top:0.25rem;
+      padding-top:0.75rem;
+      border-top:1px solid var(--border);
     }
-    .price{
-      font-family:'Playfair Display',serif;
-      font-size:1.6rem;font-weight:600;
-      color:var(--text);
-    }
+    .price{font-size:1.5rem;font-weight:800;letter-spacing:-0.02em}
     .btn-buy{
       display:inline-block;
       background:var(--accent);color:#fff;
-      padding:0.6rem 1.35rem;
-      border-radius:4px;
-      font-size:0.82rem;font-weight:600;
-      letter-spacing:0.04em;
+      padding:0.55rem 1.25rem;border-radius:5px;
+      font-size:0.8rem;font-weight:600;
       transition:background 0.2s;
     }
     .btn-buy:hover{background:var(--accent-hover)}
@@ -176,9 +221,9 @@ Got it. The logo has a warm, elegant, premium aesthetic — completely different
       grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
       gap:2.5rem;margin-top:3rem;
     }
-    .prop{display:flex;flex-direction:column;gap:0.6rem}
-    .prop-line{width:24px;height:2px;background:var(--accent);margin-bottom:0.5rem}
-    .prop h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600}
+    .prop{display:flex;flex-direction:column;gap:0.5rem}
+    .prop-accent{width:20px;height:2px;background:var(--accent);margin-bottom:0.5rem}
+    .prop h4{font-size:1rem;font-weight:700}
     .prop p{color:var(--muted);font-size:0.875rem;line-height:1.75;font-weight:300}
 
     /* FOOTER */
@@ -186,17 +231,18 @@ Got it. The logo has a warm, elegant, premium aesthetic — completely different
       max-width:960px;margin:0 auto;
       padding:2.5rem 2rem;
       display:flex;align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;gap:1rem;
-      border-top:1px solid var(--border);
+      justify-content:space-between;flex-wrap:wrap;gap:1rem;
     }
     footer p{color:var(--muted);font-size:0.8rem;font-weight:300}
-    footer a{color:var(--accent);font-size:0.8rem;font-weight:500;letter-spacing:0.03em}
-    footer a:hover{color:var(--accent-hover)}
+    footer a{color:var(--accent);font-size:0.8rem;font-weight:500}
+    footer a:hover{color:#a78bfa}
 
     @media(max-width:600px){
       nav{padding:1rem 1.25rem}
-      .hero{padding:4rem 1.25rem 3.5rem}
+      .hero-content{padding:3rem 1.25rem}
+      .stats-inner{grid-template-columns:1fr}
+      .stat{border-right:none;border-bottom:1px solid var(--border)}
+      .stat:last-child{border-bottom:none}
       .products,.values-inner{padding:3.5rem 1.25rem}
     }
   </style>
@@ -205,35 +251,56 @@ Got it. The logo has a warm, elegant, premium aesthetic — completely different
 
   <!-- NAV -->
   <nav>
-    <div class="logo">
-      <a href="/">
-        <img src="https://raw.githubusercontent.com/Lynnhk3/inspirelab-store/main/ChatGPT%20Image%2027%20avr.%202026%2C%2018_16_41.png" alt="InspireLab">
-      </a>
-    </div>
+    <div class="logo-text">Inspire<span>Lab</span></div>
     <a href="https://inspirelabs.gumroad.com" class="nav-cta" target="_blank" rel="noopener">Shop on Gumroad</a>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="badge">Digital Products</div>
-    <h1>We design your<br><em>digital actions.</em></h1>
-    <p>Premium tools, playbooks and systems for the woman who is done waiting — and ready to move with intention.</p>
-    <a href="#products" class="btn-primary">Discover the Collection</a>
+    <div class="hero-bg">
+      <img src="https://raw.githubusercontent.com/Lynnhk3/inspirelab-store/main/ChatGPT%20Image%2027%20avr.%202026%2C%2018_16_41.png" alt="">
+    </div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="badge">High-Tech &nbsp;&#183;&nbsp; Corporate &nbsp;&#183;&nbsp; Health</div>
+      <h1>We design your<br><span>digital actions.</span></h1>
+      <p>Premium systems, playbooks and tools built for high-performers who are done waiting — and ready to operate at full capacity.</p>
+      <div class="hero-ctas">
+        <a href="#products" class="btn-primary">Browse Products</a>
+        <a href="https://inspirelabs.gumroad.com" class="btn-ghost" target="_blank" rel="noopener">View on Gumroad</a>
+      </div>
+    </div>
   </section>
 
-  <div class="divider"></div>
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stats-inner">
+      <div class="stat">
+        <div class="stat-number">3+</div>
+        <div class="stat-label">Products Available</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Instant Download</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">0</div>
+        <div class="stat-label">Fluff. Zero.</div>
+      </div>
+    </div>
+  </div>
 
   <!-- PRODUCTS -->
   <section class="products" id="products">
     <p class="section-eyebrow">The Collection</p>
-    <h2 class="section-title">Built for Doers</h2>
+    <h2 class="section-title">Pick Your Weapon</h2>
+    <p class="section-sub">Every product delivers a visible result. Not theory — systems that work from day one.</p>
     <div class="grid">
 
       <div class="card">
         <div class="card-tag">Playbook</div>
         <h3>The Corporate Glow-Up Playbook</h3>
         <p>The no-BS playbook for the high-performing woman who is done waiting to be noticed — and ready to take up the space she already deserves.</p>
-        <div class="card-divider"></div>
         <div class="card-footer">
           <span class="price">&#8364;39.99</span>
           <a href="https://inspirelabs.gumroad.com/l/deixig" class="btn-buy" target="_blank" rel="noopener">Get it now</a>
@@ -244,7 +311,6 @@ Got it. The logo has a warm, elegant, premium aesthetic — completely different
         <div class="card-tag">Notion Template</div>
         <h3>Ultimate Freelancer OS</h3>
         <p>The complete command center for freelancers. Manage clients, projects, invoices, and pipeline in one powerful Notion workspace.</p>
-        <div class="card-divider"></div>
         <div class="card-footer">
           <span class="price">$27</span>
           <a href="https://inspirelabs.gumroad.com" class="btn-buy" target="_blank" rel="noopener">Get it now</a>
@@ -255,7 +321,6 @@ Got it. The logo has a warm, elegant, premium aesthetic — completely different
         <div class="card-tag">Notion Template</div>
         <h3>Content Creator OS</h3>
         <p>Plan, create, and publish at scale. Includes content calendar, idea vault, analytics tracker, and brand kit — all in Notion.</p>
-        <div class="card-divider"></div>
         <div class="card-footer">
           <span class="price">$24</span>
           <a href="https://inspirelabs.gumroad.com" class="btn-buy" target="_blank" rel="noopener">Get it now</a>
@@ -269,22 +334,22 @@ Got it. The logo has a warm, elegant, premium aesthetic — completely different
   <section class="values">
     <div class="values-inner">
       <p class="section-eyebrow">Why InspireLab</p>
-      <h2 class="section-title">A Different Standard</h2>
+      <h2 class="section-title">Built Different</h2>
       <div class="props">
         <div class="prop">
-          <div class="prop-line"></div>
+          <div class="prop-accent"></div>
           <h4>Instant Access</h4>
-          <p>Purchase once and get immediate access. No waiting, no calls, no onboarding. Open and go.</p>
+          <p>Purchase once, access immediately. No onboarding, no waiting. Open and operate.</p>
         </div>
         <div class="prop">
-          <div class="prop-line"></div>
+          <div class="prop-accent"></div>
           <h4>Built by Practitioners</h4>
-          <p>Every product is designed by people who actually run the workflows — not recycled content dressed up for a screenshot.</p>
+          <p>Every product is built by people who actually run these workflows — not recycled content that looks good on a screenshot.</p>
         </div>
         <div class="prop">
-          <div class="prop-line"></div>
-          <h4>Results, Not Theory</h4>
-          <p>Zero bloat. Every page and section earns its place. Systems you will actually use, every single day.</p>
+          <div class="prop-accent"></div>
+          <h4>Zero Bloat</h4>
+          <p>Every page, section, and system earns its place. Clean, precise tools you will actually use every single day.</p>
         </div>
       </div>
     </div>
